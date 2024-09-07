@@ -43,7 +43,7 @@ lib/
 ├── views/
 │   ├── home_screen.dart              # Displays task list and quote
 │   ├── edit_task_screen.dart         # Edit task form
-│   ├── add_screen.dart               # Add task form
+│   ├── add_task_screen.dart               # Add task form
 │   ├── completed_tasks_screen.dart   # Displays completed tasks
 │   ├── settings_screen.dart          # Settings for theme toggling
 │   └── widgets/
