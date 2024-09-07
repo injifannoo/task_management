@@ -93,16 +93,15 @@ flutter build apk
 **Dependencies**
 
 **Flutter Local Notifications:** Used for scheduling and showing local notifications.
-
 ```flutter_local_notifications```
+
 **Shared Preferences:** Used for storing tasks locally on the device.
-
 ```shared_preferences```
+
 **Provider:** Used for state management.
-
 ```provider```
-**HTTP:** Used for fetching quotes from the API.
 
+**HTTP:** Used for fetching quotes from the API.
 ```http```
 
 **API:**
