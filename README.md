@@ -56,9 +56,9 @@ lib/
 ### Prerequisites
 **Flutter:** Ensure you have Flutter installed. You can follow the installation guide here.
 
-IDE: Use an IDE like Android Studio, or VS Code
+**IDE:** Use an IDE like Android Studio, or VS Code
 
-##Steps to run the project
+## Steps to run the project
 **Clone the repository:**
 
 ```
@@ -93,16 +93,16 @@ flutter build apk
 **Dependencies**
 ***Flutter Local Notifications:*** Used for scheduling and showing local notifications.
 
-flutter_local_notifications
+```flutter_local_notifications```
 ***Shared Preferences:*** Used for storing tasks locally on the device.
 
-shared_preferences
+```shared_preferences```
 ***Provider:*** Used for state management.
 
-provider
+```provider```
 ***HTTP:*** Used for fetching quotes from the API.
 
-http
+```http```
 
 **API:**
 The app uses the TypeFit Quotes API to fetch motivational quotes. A random quote is displayed on the home screen every time the user opens the app.
