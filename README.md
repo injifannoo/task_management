@@ -117,7 +117,8 @@ The app uses the Provider package for state management, which ensures the app's 
 1. Task Prioritization: Add the ability to prioritize tasks (e.g., low, medium, high).
 2. Sync with Cloud: Implement cloud-based storage to sync tasks across devices.
 3. User Authentication: Add user authentication to enable personalized task management.
-Contribution
-4. Feel free to contribute to this project by creating a pull request. Please ensure that your code is well-documented and follows best practices.
+
+**Contribution**
+Feel free to contribute to this project by creating a pull request. Please ensure that your code is well-documented and follows best practices.
 
 **License**
