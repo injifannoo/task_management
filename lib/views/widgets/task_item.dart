@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../models/task_model.dart';
-import '../edit_task_screen.dart';
 import 'package:intl/intl.dart'; 
-
 
 class TaskItem extends StatelessWidget {
   final Task task;
@@ -11,11 +9,11 @@ class TaskItem extends StatelessWidget {
 
 
   const TaskItem({
-    Key? key,
+    super.key,
     required this.task,
     required this.index,
     required this.onEdit,  
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

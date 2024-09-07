@@ -10,7 +10,6 @@ import 'views/setting_screen.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   NotificationService().initNotification();
-
   runApp(
     MultiProvider(
       providers: [
@@ -30,14 +29,14 @@ class MyApp extends StatelessWidget {
     final themeController = Provider.of<ThemeController>(context);
 
     return MaterialApp(
-      debugShowCheckedModeBanner:false,
+      debugShowCheckedModeBanner: false,
       title: 'Task Manager',
       theme: themeController.isDarkMode ? ThemeData.dark() : ThemeData.light(),
       initialRoute: '/home',
       routes: {
         '/home': (context) => const HomeScreen(),
-        '/completed': (context) =>const CompletedTasksScreen(),
-        '/settings': (context) =>const SettingsScreen(),
+        '/completed': (context) => const CompletedTasksScreen(),
+        '/settings': (context) => const SettingsScreen(),
       },
     );
   }

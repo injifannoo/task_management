@@ -5,91 +5,9 @@ import '../controllers/task_controller.dart';
 import '../services/notification_service.dart';
 import 'package:timezone/timezone.dart' as tz;
 
-// class AddTaskScreen extends StatefulWidget {
-//   @override
-//   _AddTaskScreenState createState() => _AddTaskScreenState();
-// }
-
-// class _AddTaskScreenState extends State<AddTaskScreen> {
-//   final _formKey = GlobalKey<FormState>();
-//   String _title = '';
-//   String _description = '';
-//   DateTime _dueDate = DateTime.now();
-//   bool _isCompleted = false;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final taskController = Provider.of<TaskController>(context);
-
-//     return Scaffold(
-//       appBar: AppBar(title: const Text('Add Task')),
-//       body: Padding(
-//         padding: const EdgeInsets.all(16.0),
-//         child: Form(
-//           key: _formKey,
-//           child: Column(
-//             children: [
-//               TextFormField(
-//                 decoration: const InputDecoration(labelText: 'Title'),
-//                 validator: (value) =>
-//                     value!.isEmpty ? 'Please enter a title' : null,
-//                 onSaved: (value) => _title = value!,
-//               ),
-//               TextFormField(
-//                 decoration: const InputDecoration(labelText: 'Description'),
-//                 validator: (value) =>
-//                     value!.isEmpty ? 'Please enter a description' : null,
-//                 onSaved: (value) => _description = value!,
-//               ),
-//               ListTile(
-//                 title: Text('Due Date: ${_dueDate.toLocal()}'.split(' ')[0]),
-//                 trailing: const Icon(Icons.calendar_today),
-//                 onTap: _pickDueDate,
-//               ),
-//               SwitchListTile(
-//                 title: const Text('Completed'),
-//                 value: _isCompleted,
-//                 onChanged: (value) => setState(() => _isCompleted = value),
-//               ),
-//               ElevatedButton(
-//                 child: const Text('Save Task'),
-//                 onPressed: () {
-//                   if (_formKey.currentState!.validate()) {
-//                     _formKey.currentState!.save();
-//                     final task = Task(
-//                       title: _title,
-//                       description: _description,
-//                       dueDate: _dueDate,
-//                       isCompleted: _isCompleted,
-//                     );
-//                     taskController.addTask(task);
-//                     Navigator.pop(context);
-//                   }
-//                 },
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-
-//   Future<void> _pickDueDate() async {
-//     DateTime? picked = await showDatePicker(
-//       context: context,
-//       initialDate: _dueDate,
-//       firstDate: DateTime.now(),
-//       lastDate: DateTime(2101),
-//     );
-//     if (picked != null && picked != _dueDate) {
-//       setState(() {
-//         _dueDate = picked;
-//       });
-//     }
-//   }
-// }
-
 class AddTaskScreen extends StatefulWidget {
+  const AddTaskScreen({super.key});
+
   @override
   _AddTaskScreenState createState() => _AddTaskScreenState();
 }
@@ -162,7 +80,18 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     taskController.addTask(task);
 
                     // Schedule the notification
-                    _scheduleNotification(task);
+                    final tz.TZDateTime scheduledNotificationDate =
+                        tz.TZDateTime.from(
+                      task.dueDate,
+                      tz.local,
+                    ).subtract(const Duration(hours: 1));
+
+                    NotificationService().scheduleNotification(
+                      'Task Reminder',
+                      'Your task "${task.title}" is due soon!',
+                      scheduledNotificationDate,
+                      task.hashCode, // Unique ID for the notification
+                    );
 
                     Navigator.pop(context);
                   }
@@ -215,7 +144,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
     );
 
     final scheduledDate = dueDateTime.subtract(
-        const Duration(minutes: 1)); // Notify 1 hour before the due date
+        const Duration(hours: 1)); // Notify 1 hour before the due date
 
     await notificationService.scheduleNotification(
       'Task Reminder',
