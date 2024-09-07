@@ -1,4 +1,4 @@
-#Task Management App
+# Task Management App
 
 This is a simple Task Management App built with Flutter that allows users to manage tasks, set due dates, and keep track of completed tasks. The app also integrates motivational quotes fetched from an external API and supports local notifications for task reminders. It uses the MVC pattern and is implemented with clean, maintainable code.
 
@@ -42,8 +42,8 @@ lib/
 │   └── notification_service.dart     # Manages task notifications
 ├── views/
 │   ├── home_screen.dart              # Displays task list and quote
-│   ├── edit_task_screen.dart     # Edit task form
-│   ├── add_screen.dart     # Add task form
+│   ├── edit_task_screen.dart         # Edit task form
+│   ├── add_screen.dart               # Add task form
 │   ├── completed_tasks_screen.dart   # Displays completed tasks
 │   ├── settings_screen.dart          # Settings for theme toggling
 │   └── widgets/
@@ -52,13 +52,13 @@ lib/
 ├── main.dart                          # Entry point of the app
 ```
 
-##Installation and Setup
-###Prerequisites
+## Installation and Setup
+### Prerequisites
 **Flutter:** Ensure you have Flutter installed. You can follow the installation guide here.
 
-IDE: Use an IDE like Android Studio, or VS Code
+**IDE:** Use an IDE like Android Studio, or VS Code
 
-##Steps to run the project
+## Steps to run the project
 **Clone the repository:**
 
 ```
@@ -91,33 +91,34 @@ flutter build apk
 ```
 
 **Dependencies**
-***Flutter Local Notifications:*** Used for scheduling and showing local notifications.
 
-flutter_local_notifications
-***Shared Preferences:*** Used for storing tasks locally on the device.
+**Flutter Local Notifications:** Used for scheduling and showing local notifications.
+```flutter_local_notifications```
 
-shared_preferences
-***Provider:*** Used for state management.
+**Shared Preferences:** Used for storing tasks locally on the device.
+```shared_preferences```
 
-provider
-***HTTP:*** Used for fetching quotes from the API.
+**Provider:** Used for state management.
+```provider```
 
-http
+**HTTP:** Used for fetching quotes from the API.
+```http```
 
-**API**
+**API:**
 The app uses the TypeFit Quotes API to fetch motivational quotes. A random quote is displayed on the home screen every time the user opens the app.
 
-**Notifications**
+**Notifications:**
 The app uses flutter_local_notifications to schedule notifications for tasks that are due soon (within 1 hour). Notifications are scheduled using the NotificationService class in notification_service.dart.
 
-**State Management**
+**State Management:**
 The app uses the Provider package for state management, which ensures the app's state is properly handled and updated when tasks are added, edited, or deleted.
 
-**Future Improvements**
-Task Prioritization: Add the ability to prioritize tasks (e.g., low, medium, high).
-Sync with Cloud: Implement cloud-based storage to sync tasks across devices.
-User Authentication: Add user authentication to enable personalized task management.
-Contribution
+**Future Improvements:**
+1. Task Prioritization: Add the ability to prioritize tasks (e.g., low, medium, high).
+2. Sync with Cloud: Implement cloud-based storage to sync tasks across devices.
+3. User Authentication: Add user authentication to enable personalized task management.
+
+**Contribution**
 Feel free to contribute to this project by creating a pull request. Please ensure that your code is well-documented and follows best practices.
 
 **License**
